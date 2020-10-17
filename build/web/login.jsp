@@ -17,7 +17,7 @@
                 
                 <h1>Welcome to the Bank App!</h1>
                 <h2>Please Login Below:</h2>
-                User Name: <input type="text" name="username" />
+                Checking account balance: <input type="text" name="username" />
                 <br/>
                 Password : <input type="text" name="password" />
                 <br/>
