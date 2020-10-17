@@ -3,7 +3,7 @@
     Created on : Oct 2, 2020, 9:18:08 AM
     Author     : doug
 --%>
-
+<jsp:useBean id="bankapp" class="com.BankApp.BankAppWeb" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,14 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body style="background-color:#DADBE0;">
+        
+        <jsp:setProperty name="bankapp" property="username" param="username" />
+        <jsp:setProperty name="bankapp" property="password" param="password" />
+        <jsp:getProperty name="bankapp" property="username" />
         <div align="center">
               
             <h1>Welcome to your Account.</h1>
             <h2>You may view your Checkings and Savings Amounts, and deposit or withdraw from your checking account.</h2>
             <h3>You may also transfer from your savings to your checking.</h3>
-            Checking Account Balance: <input type="text" name="username" />
+            
+            Checking Account Balance: <input type="text" name="checkingAmount" />
             <br/>
-            Savings Account Balance: <input type="text" name="password" />
+            Savings Account Balance: <input type="text" name="savingsAmount" />
             <br/>
                 
         </div>
