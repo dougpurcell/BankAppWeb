@@ -9,22 +9,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>BankApp Account</title>
     </head>
     <body style="background-color:#DADBE0;">
         
         <jsp:setProperty name="bankapp" property="username" param="username" />
         <jsp:setProperty name="bankapp" property="password" param="password" />
-        <jsp:getProperty name="bankapp" property="username" />
         <div align="center">
               
             <h1>Welcome to your Account.</h1>
-            <h2>You may view your Checkings and Savings Amounts, and deposit or withdraw from your checking account.</h2>
+            <h2>You may view your Checking and Savings Amounts, and deposit or withdraw from your checking account.</h2>
             <h3>You may also transfer from your savings to your checking.</h3>
-            
-            Checking Account Balance: <input type="text" name="checkingAmount" />
+            Checking Account Balance: <jsp:getProperty name="bankapp" property="checkingAmount" />
             <br/>
-            Savings Account Balance: <input type="text" name="savingsAmount" />
+            Savings Account Balance: <jsp:getProperty name="bankapp" property="savingsAmount" />
             <br/>
                 
         </div>

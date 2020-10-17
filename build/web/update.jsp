@@ -12,7 +12,7 @@
         <title>Update Amounts</title>
     </head>
     <body>
-        <jsp:useBean id="bankapp" class="BankApp.BankAppWeb" />
+        <jsp:useBean id="bankapp" class="com.BankApp.BankAppWeb" />
         <jsp:setProperty name="bankapp" property="checkingAmount" param="checkingAmount" />
         <jsp:setProperty name="bankapp" property="savingsAmount" param="savingsAmount" />
     </body>

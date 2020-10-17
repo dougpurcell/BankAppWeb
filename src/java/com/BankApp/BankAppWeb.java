@@ -15,30 +15,30 @@ import java.sql.Statement;
  * @author doug
  */
 public class BankAppWeb {
-    private double checkingAmount = 250.00;
+    private String checkingAmount = "250.00";
     private double savingsAmount = 1000.05;
     private double updateAmount = 0;
     private String username = "username";
     private String password = "pAsSwOrD";
     //TODO: need array for calculations
-    public double getChecking() {
+    public String getCheckingAmount() {
         return checkingAmount;
     }
-    public void setChecking(double checkingAmount) {
+    public void setCheckingAmount(String checkingAmount) {
         this.checkingAmount = checkingAmount;
     }
     
-    public double getSavings() {
+    public double getSavingsAmount() {
         return savingsAmount;
     }
-    public void setSavings(double savingsAmount) {
+    public void setSavingsAmount(double savingsAmount) {
         this.savingsAmount = savingsAmount;
     }
     
-    public double getUpdate() {
+    public double getUpdateAmount() {
         return updateAmount;
     }
-    public void setUpdate(double updateAmount) {
+    public void setUpdateAmount(double updateAmount) {
         this.updateAmount = updateAmount;
     }
     

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : update
-    Created on : Oct 17, 2020, 10:37:43 AM
+    Document   : viewChecking
+    Created on : Oct 17, 2020, 11:22 am
     Author     : griff
 --%>
 
@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Update Amounts</title>
+        <title>Checking Amount</title>
     </head>
     <body>
         <jsp:useBean id="bankapp" class="com.BankApp.BankAppWeb" />
-        <jsp:setProperty name="bankapp" property="checkingAmount" param="checkingAmount" />
-        <jsp:setProperty name="bankapp" property="savingsAmount" param="savingsAmount" />
+        <jsp:setProperty name="bankapp" property="checkingAmount" param="checkingAmount" /> 
+        <jsp:getProperty name="bankapp" property="checkingAmount" />
     </body>
 </html>

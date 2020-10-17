@@ -13,6 +13,7 @@
     </head>
     <body style="background-color:#DADBE0;">
         <div align="center">
+            
             <form action="account.jsp">
                 
                 <h1>Welcome to the Bank App!</h1>
@@ -22,7 +23,6 @@
                 Password : <input type="text" name="password" />
                 <br/>
                 <input type="submit" value="Login" />
-                
                 <% bankapp.writeToDatabase(); %>
             </form>
         </div>

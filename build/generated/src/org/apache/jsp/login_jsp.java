@@ -60,6 +60,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("    <body style=\"background-color:#DADBE0;\">\n");
       out.write("        <div align=\"center\">\n");
+      out.write("            \n");
       out.write("            <form action=\"account.jsp\">\n");
       out.write("                \n");
       out.write("                <h1>Welcome to the Bank App!</h1>\n");
@@ -69,7 +70,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                Password : <input type=\"text\" name=\"password\" />\n");
       out.write("                <br/>\n");
       out.write("                <input type=\"submit\" value=\"Login\" />\n");
-      out.write("                \n");
       out.write("                ");
  bankapp.writeToDatabase(); 
       out.write("\n");
