@@ -56,13 +56,31 @@ public class BankAppWeb {
     
     // TODO: Calcuation Methods for withdraw, deposit, and transfer.
     public double withdrawFromChecking(double checkingAmount, double updateAmount) { //TODO: Test checkingUpdate function.
-       double c = checkingAmount;
-       double u = updateAmount;
-        while(u < c) {
-           c = c - u;
+        double c = checkingAmount;
+        double u = updateAmount;
+        
+            c = c - u; 
+        
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        } catch (ClassNotFoundException ex) { }
+        System.out.println("...Driver loaded");
+        Connection connection;
+        
+        try {
+            connection = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\griff\\Google Drive\\College\\IST412\\BankAppWeb\\BankApp.accdb");
+            Statement s = connection.createStatement();
+            String sql = " UPDATE BankApp SET checking ='" + c + "' WHERE username ='" + username + "' ";
+            
+            s.executeUpdate(sql);
+             
+            s.close();
+            connection.close();
         }
+        catch (SQLException e) {}
         return c;
     }
+    
     public void writeToDatabase() {
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");

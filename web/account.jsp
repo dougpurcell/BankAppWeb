@@ -33,7 +33,10 @@
             
         <div align="center"> 
             <form action="withdrawFromChecking.jsp" >
-                I'd like to Withdraw From Checking.<input type="submit" Value="Withdraw" />
+                I'd like to Withdraw From Checking. <input type="submit" Value="Withdraw" />
+                <input type="hidden" name="username" value="<%= bankapp1.username %>" > 
+                <input type="hidden" name="checkingAmount" value="<%= bankapp1.checkingAmount %>" > 
+                <input type="hidden" name="savingsAmount" value="<%= bankapp1.savingsAmount %>" >
             </form>
         </div>
     </body>
