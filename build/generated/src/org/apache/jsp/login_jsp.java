@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.*;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,7 +42,10 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write('\n');
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       com.BankApp.BankAppWeb bankapp = null;
       synchronized (_jspx_page_context) {
         bankapp = (com.BankApp.BankAppWeb) _jspx_page_context.getAttribute("bankapp", PageContext.PAGE_SCOPE);
@@ -59,20 +63,15 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>BankApp Login</title>\n");
       out.write("    </head>\n");
       out.write("    <body style=\"background-color:#DADBE0;\">\n");
-      out.write("        <div align=\"center\">\n");
-      out.write("            \n");
+      out.write("        <div align=\"center\"> \n");
       out.write("            <form action=\"account.jsp\">\n");
-      out.write("                \n");
       out.write("                <h1>Welcome to the Bank App!</h1>\n");
       out.write("                <h2>Please Login Below:</h2>\n");
-      out.write("                Username: <input type=\"text\" name=\"username\" />\n");
+      out.write("                Username: <input type=\"text\" name=\"user\" />\n");
       out.write("                <br/>\n");
       out.write("                Password : <input type=\"text\" name=\"password\" />\n");
       out.write("                <br/>\n");
-      out.write("                <input type=\"submit\" value=\"Login\" />\n");
-      out.write("                ");
- bankapp.writeToDatabase(); 
-      out.write("\n");
+      out.write("                <input type=\"submit\" value=\"Login\" />^\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");

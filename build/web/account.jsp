@@ -3,8 +3,10 @@
     Created on : Oct 2, 2020, 9:18:08 AM
     Author     : doug
 --%>
-<jsp:useBean id="bankapp" class="com.BankApp.BankAppWeb" />
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.BankApp.BankAppWeb" %>
+<%@page import="java.sql.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,34 +14,26 @@
         <title>BankApp Account</title>
     </head>
     <body style="background-color:#DADBE0;">
+        <jsp:useBean id="bankapp" class="com.BankApp.BankAppWeb" />
+        <jsp:setProperty name="bankapp" property="username" param="user" />
         
-        <jsp:setProperty name="bankapp" property="username" param="username" />
-        <jsp:setProperty name="bankapp" property="password" param="password" />
+        <% BankAppWeb bankapp1 = null;
+            bankapp1 = bankapp.readFromDatabase();    
+        %>
+           
         <div align="center">
-              
-            <h1>Welcome to your Account.</h1>
+            <h1>Welcome, <%= bankapp1.username %>, to your Account.</h1>
             <h2>You may view your Checking and Savings Amounts, and deposit or withdraw from your checking account.</h2>
             <h3>You may also transfer from your savings to your checking.</h3>
-            Checking Account Balance: <jsp:getProperty name="bankapp" property="checkingAmount" />
+            <p> Checking Account Balance: <%=bankapp1.checkingAmount %>
             <br/>
-            Savings Account Balance: <jsp:getProperty name="bankapp" property="savingsAmount" />
-            <br/>
-                
+            Savings Account Balance: <%= bankapp1.savingsAmount %>
+            <br/></p>
         </div>
-        <div align="center">
-            <form action="update.jsp">
-                I want to: <select name ="action">
-                    <option value="withdraw">Withdraw From Checking</option>
-                    <option value="deposit">Deposit Into Checking</option>
-                    <option value="transfer">Transfer from Saving to Checking</option>
-                    
-                    
-                    
-                </select>
-                <br />
-                Amount: <input type="text" name="updateAmount" />
-                <br/>
-                <input type="submit" Value="Update" />
+            
+        <div align="center"> 
+            <form action="withdrawFromChecking.jsp" >
+                I'd like to Withdraw From Checking.<input type="submit" Value="Withdraw" />
             </form>
         </div>
     </body>

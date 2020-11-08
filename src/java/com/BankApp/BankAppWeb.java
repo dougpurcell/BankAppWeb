@@ -5,26 +5,25 @@
  */
 package com.BankApp;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
- *
  * @author doug
  */
+
 public class BankAppWeb {
-    private String checkingAmount = "250.00";
-    private double savingsAmount = 1000.05;
-    private double updateAmount = 0;
-    private String username = "username";
-    private String password = "pAsSwOrD";
+    public double checkingAmount;
+    public double savingsAmount;
+    private double updateAmount;
+    public String username;
+    private String password;
+    
     //TODO: need array for calculations
-    public String getCheckingAmount() {
+    
+    public double getCheckingAmount() {
         return checkingAmount;
     }
-    public void setCheckingAmount(String checkingAmount) {
+    public void setCheckingAmount(double checkingAmount) {
         this.checkingAmount = checkingAmount;
     }
     
@@ -56,13 +55,18 @@ public class BankAppWeb {
     }
     
     // TODO: Calcuation Methods for withdraw, deposit, and transfer.
-    
+    public double withdrawFromChecking(double checkingAmount, double updateAmount) { //TODO: Test checkingUpdate function.
+       double c = checkingAmount;
+       double u = updateAmount;
+        while(u < c) {
+           c = c - u;
+        }
+        return c;
+    }
     public void writeToDatabase() {
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        } catch (ClassNotFoundException ex) {
-            
-        }
+        } catch (ClassNotFoundException ex) { }
         System.out.println("...Driver loaded");
         Connection connection;
         
@@ -72,29 +76,45 @@ public class BankAppWeb {
             String sql = "INSERT INTO BankApp (username,checking,savings) Values('" + username + "','" + checkingAmount + "','" + savingsAmount + "')";
             
             s.executeUpdate(sql);
+             
+            s.close();
+            connection.close();
         }
-        catch (SQLException e ) {
-            
-        }
+        catch (SQLException e ) { }
     }
-    public void readFromDatabase() {
+    
+    public BankAppWeb readFromDatabase() {
+        BankAppWeb account = null;
+        ResultSet rs = null;
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        } catch (ClassNotFoundException ex) {
-            
-        }
+        } catch (ClassNotFoundException ex) { }
+  
         System.out.println("...Driver loaded");
         Connection connection;
         
         try {
             connection = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\griff\\Google Drive\\College\\IST412\\BankAppWeb\\BankApp.accdb");
             Statement s = connection.createStatement();
-            String sql = "SELECT FROM BankApp (username,checking,savings) Values('" + username + "','" + checkingAmount + "','" + savingsAmount + "')";
+            String sql = "SELECT id, username, checking, savings FROM BankApp where username = '" + username + "'";
+        
+            try {
+                rs = s.executeQuery(sql);
+                System.out.println(rs);
+                
+                while (rs.next()) {
+                    account = new BankAppWeb();
+                    account.username = rs.getString(2);
+                    account.checkingAmount = rs.getDouble(3);
+                    account.savingsAmount = rs.getDouble(4);
+                }
+
+            } catch (Exception e){ }
             
-            s.executeUpdate(sql);
-        }
-        catch (SQLException e ) {
+            s.close();
+            connection.close();
             
-        }
+        } catch (SQLException e ) {}
+        return account;
     }
 }
