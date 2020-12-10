@@ -1,7 +1,7 @@
 <%-- 
     Document   : withdrawFromChecking
     Created on : Nov 8, 2020, 11:08:24 AM
-    Author     : Doug Griffiths
+    Author     : griff
 --%>
 
 <%@page import="com.BankApp.BankAppWeb" %>
@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Withdraw From Checking</title>
+        <title>Deposit To Checking</title>
     </head>
     <body style="background-color:#DADBE0;">
         <% String username = request.getParameter("username");
@@ -26,16 +26,16 @@
             %>
         
         <div align="center"> 
-            <h2>Withdraw from your checking account:</h2>
+            <h2>Deposit funds into your checking account:</h2>
             <p>Checking amount: $<%= ba.checkingAmount %></p>
             <br />
-            <form action="withdrawSuccess.jsp" >
-                Amount to Withdraw: <input type="text" name="withdraw" />
-                <jsp:setProperty name="bankapp" property="updateAmount" param="withdraw" />
+            <form action="success.jsp" >
+                Amount to Deposit: <input type="text" name="deposit" />
+                <jsp:setProperty name="bankapp" property="updateAmount" param="deposit" />
                 <br/>
                 <input type="hidden" name="username" value="<%= ba.username %>" > 
                 <input type="hidden" name="checkingAmount" value="<%= ba.checkingAmount %>" >
-                <input type="submit" value="Withdraw">
+                <input type="submit" value="Deposit">
                 
             </form>
                 

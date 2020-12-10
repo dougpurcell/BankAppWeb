@@ -1,7 +1,7 @@
 <%-- 
     Document   : Account
     Created on : Oct 2, 2020, 9:18:08 AM
-    Author     : doug
+    Author     : Doug Griffiths
 --%>
 <%@page import="com.BankApp.BankAppWeb" %>
 <%@page import="java.sql.*" %>
@@ -22,7 +22,7 @@
         %>
            
         <div align="center">
-            <h1>Welcome, <%= bankapp1.username %>, to your Account.</h1>
+            <h1>Welcome <%= bankapp1.username %> to your Account.</h1>
             <h2>You may view your Checking and Savings Amounts, and deposit or withdraw from your checking account.</h2>
             <h3>You may also transfer from your savings to your checking.</h3>
             <p> Checking Account Balance: <%=bankapp1.checkingAmount %>
@@ -33,7 +33,19 @@
             
         <div align="center"> 
             <form action="withdrawFromChecking.jsp" >
-                I'd like to Withdraw From Checking. <input type="submit" Value="Withdraw" />
+                I'd like to withdraw from my checking. <input type="submit" Value="Withdraw" />
+                <input type="hidden" name="username" value="<%= bankapp1.username %>" > 
+                <input type="hidden" name="checkingAmount" value="<%= bankapp1.checkingAmount %>" > 
+                <input type="hidden" name="savingsAmount" value="<%= bankapp1.savingsAmount %>" >
+            </form>
+            <form action="depositToChecking.jsp" >
+                I'd like to deposit into my checking. <input type="submit" Value="Deposit" />
+                <input type="hidden" name="username" value="<%= bankapp1.username %>" > 
+                <input type="hidden" name="checkingAmount" value="<%= bankapp1.checkingAmount %>" > 
+                <input type="hidden" name="savingsAmount" value="<%= bankapp1.savingsAmount %>" >
+            </form>
+            <form action="transferToChecking.jsp" >
+                I'd like to transfer from my savings to my checking. <input type="submit" Value="Transfer" />
                 <input type="hidden" name="username" value="<%= bankapp1.username %>" > 
                 <input type="hidden" name="checkingAmount" value="<%= bankapp1.checkingAmount %>" > 
                 <input type="hidden" name="savingsAmount" value="<%= bankapp1.savingsAmount %>" >

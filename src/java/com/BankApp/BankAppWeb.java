@@ -8,7 +8,7 @@ package com.BankApp;
 import java.sql.*;
 
 /**
- * @author doug
+ * @author Doug Griffiths
  */
 
 public class BankAppWeb {
@@ -64,6 +64,32 @@ public class BankAppWeb {
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
         } catch (ClassNotFoundException ex) { }
+        System.out.println("...Driver loaded");
+        Connection connection;
+        
+        try {
+            connection = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\griff\\Google Drive\\College\\IST412\\BankAppWeb\\BankApp.accdb");
+            Statement s = connection.createStatement();
+            String sql = " UPDATE BankApp SET checking ='" + c + "' WHERE username ='" + username + "' ";
+            
+            s.executeUpdate(sql);
+             
+            s.close();
+            connection.close();
+        }
+        catch (SQLException e) {}
+        return c;
+    }
+    public double depositToChecking(double checkingAmount, double updateAmount) { //TODO: Test checkingUpdate function.
+        double c = checkingAmount;
+        double u = updateAmount;
+        
+            c = c + u; 
+        
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        } 
+        catch (ClassNotFoundException ex) { }
         System.out.println("...Driver loaded");
         Connection connection;
         

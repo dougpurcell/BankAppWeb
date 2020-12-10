@@ -1,7 +1,7 @@
 <%-- 
     Document   : Login
     Created on : Oct 2, 2020, 9:17:42 AM
-    Author     : doug
+    Author     : Doug Griffiths
 --%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
