@@ -1,6 +1,6 @@
 <%-- 
-    Document   : depositSuccess
-    Created on : Dec 10, 2020, 6:04:21 PM
+    Document   : transferSuccess
+    Created on : Dec 10, 2020, 6:41 PM
     Author     : Doug Griffiths
 --%>
 
@@ -18,6 +18,7 @@
     <body style="background-color:#DADBE0;">
         <% String username = request.getParameter("username");
             String ca = request.getParameter("checkingAmount");
+            String sa = request.getParameter("savingsAmount");
         %>
         
         <jsp:setProperty name="bankapp" property="username" value="<%= username %>" />
@@ -26,17 +27,20 @@
             BankAppWeb ba = bankapp.readFromDatabase();;
             %>
         <div align="center">
-        <h2>Success!</h2>
-        <form action="login.jsp">
-            <input type="submit" value="Log Out">
-            <input type="hidden" name="username" value="<%= ba.username %>" >
-            <input type="hidden" name="password" value="" >
-        </form>
-    </div>
-            <% String deposit = request.getParameter("deposit");
+            <h2>Transfer Success!</h2>
+            <form action="login.jsp">
+                <input type="submit" value="Log Out">
+                <input type="hidden" name="username" value="<%= ba.username %>" >
+                <input type="hidden" name="password" value="" >
+            </form>
+        </div>
+            <% String t = request.getParameter("transfer");
                     double checkingAmount = Double.parseDouble(ca);
-                    double updateAmount = Double.parseDouble(deposit);
-                    ba.checkingAmount = bankapp.depositToChecking(checkingAmount,updateAmount);
+                    double savingsAmount = Double.parseDouble(sa);
+                    double updateAmount = Double.parseDouble(t);
+                    ba.savingsAmount = bankapp.withdrawFromSavings(savingsAmount, updateAmount);
+                    ba.checkingAmount = bankapp.depositToChecking(checkingAmount, updateAmount);
+                   
                 %>
         <%  }  catch (NullPointerException e ) { } catch (NumberFormatException e) {%>
         <% } %> 

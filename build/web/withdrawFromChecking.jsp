@@ -16,9 +16,7 @@
         <title>Withdraw From Checking</title>
     </head>
     <body style="background-color:#DADBE0;">
-        <% String username = request.getParameter("username");
-            String ca = request.getParameter("checkingAmount");
-        %>
+        <% String username = request.getParameter("username"); %>
         
         <jsp:setProperty name="bankapp" property="username" value="<%= username %>" />
         <% try {

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : success
+    Document   : depositSuccess
     Created on : Dec 10, 2020, 6:04:21 PM
-    Author     : griff
+    Author     : Doug Griffiths
 --%>
 
 <%@page import="com.BankApp.BankAppWeb" %>

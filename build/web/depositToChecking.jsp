@@ -1,7 +1,7 @@
 <%-- 
-    Document   : withdrawFromChecking
-    Created on : Nov 8, 2020, 11:08:24 AM
-    Author     : griff
+    Document   : depositToChecking
+    Created on : Dec 10, 2020, 6:00 PM
+    Author     : Doug Griffiths
 --%>
 
 <%@page import="com.BankApp.BankAppWeb" %>
@@ -16,9 +16,7 @@
         <title>Deposit To Checking</title>
     </head>
     <body style="background-color:#DADBE0;">
-        <% String username = request.getParameter("username");
-            String ca = request.getParameter("checkingAmount");
-        %>
+        <% String username = request.getParameter("username"); %>
         
         <jsp:setProperty name="bankapp" property="username" value="<%= username %>" />
         <% try {
@@ -29,7 +27,7 @@
             <h2>Deposit funds into your checking account:</h2>
             <p>Checking amount: $<%= ba.checkingAmount %></p>
             <br />
-            <form action="success.jsp" >
+            <form action="depositSuccess.jsp" >
                 Amount to Deposit: <input type="text" name="deposit" />
                 <jsp:setProperty name="bankapp" property="updateAmount" param="deposit" />
                 <br/>

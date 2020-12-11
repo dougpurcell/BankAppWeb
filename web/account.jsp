@@ -44,7 +44,7 @@
                 <input type="hidden" name="checkingAmount" value="<%= bankapp1.checkingAmount %>" > 
                 <input type="hidden" name="savingsAmount" value="<%= bankapp1.savingsAmount %>" >
             </form>
-            <form action="transferToChecking.jsp" >
+            <form action="transferSavingsToChecking.jsp" >
                 I'd like to transfer from my savings to my checking. <input type="submit" Value="Transfer" />
                 <input type="hidden" name="username" value="<%= bankapp1.username %>" > 
                 <input type="hidden" name="checkingAmount" value="<%= bankapp1.checkingAmount %>" > 

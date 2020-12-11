@@ -42,10 +42,10 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       com.BankApp.BankAppWeb bankapp = null;
       synchronized (_jspx_page_context) {
         bankapp = (com.BankApp.BankAppWeb) _jspx_page_context.getAttribute("bankapp", PageContext.PAGE_SCOPE);
@@ -54,28 +54,28 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
           _jspx_page_context.setAttribute("bankapp", bankapp, PageContext.PAGE_SCOPE);
         }
       }
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>BankApp Login</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body style=\"background-color:#DADBE0;\">\n");
-      out.write("        <div align=\"center\"> \n");
-      out.write("            <form action=\"account.jsp\">\n");
-      out.write("                <h1>Welcome to the Bank App!</h1>\n");
-      out.write("                <h2>Please Login Below:</h2>\n");
-      out.write("                Username: <input type=\"text\" name=\"user\" />\n");
-      out.write("                <br/>\n");
-      out.write("                Password : <input type=\"text\" name=\"password\" />\n");
-      out.write("                <br/>\n");
-      out.write("                <input type=\"submit\" value=\"Login\" />\n");
-      out.write("            </form>\n");
-      out.write("        </div>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <title>BankApp Login</title>\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body style=\"background-color:#DADBE0;\">\r\n");
+      out.write("        <div align=\"center\"> \r\n");
+      out.write("            <form action=\"account.jsp\">\r\n");
+      out.write("                <h1>Welcome to the Bank App!</h1>\r\n");
+      out.write("                <h2>Please Login Below:</h2>\r\n");
+      out.write("                Username: <input type=\"text\" name=\"user\" />\r\n");
+      out.write("                <br/>\r\n");
+      out.write("                Password : <input type=\"text\" name=\"password\" />\r\n");
+      out.write("                <br/>\r\n");
+      out.write("                <input type=\"submit\" value=\"Login\" />\r\n");
+      out.write("            </form>\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
